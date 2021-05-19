@@ -7,10 +7,10 @@ fi
 echo $TIMEZONE > /etc/timezone && \
 dpkg-reconfigure -f noninteractive tzdata
 
-sed -i "s|;date.timezone =.*|date.timezone = $TIMEZONE|" /etc/php/7.1/*/php.ini
+sed -i "s|;date.timezone =.*|date.timezone = $TIMEZONE|" /etc/php/7.3/*/php.ini
 
 if [ -n "$PHP_MEMORY_LIMIT" ]; then
-	sed -i "s/^memory_limit =.*/memory_limit = $PHP_MEMORY_LIMIT/" /etc/php/7.1/*/php.ini
+	sed -i "s/^memory_limit =.*/memory_limit = $PHP_MEMORY_LIMIT/" /etc/php/7.3/*/php.ini
 fi
 
 exec "$@"
